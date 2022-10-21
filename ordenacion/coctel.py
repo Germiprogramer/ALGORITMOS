@@ -1,12 +1,10 @@
 l = [2,1,4,3]
-
-def comp_der(a,b):
-    return a == b
+    
     
 
-comp_der(l[1],l[2])
+#comp_der(l[1],l[2])
 
-print(l)
+#print(l)
 
 
 def coctel(lista):
