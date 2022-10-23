@@ -39,3 +39,4 @@ def en_cima(pila):
 def tamanio(pila):
     #devuelve el numero de elementos en la pila
     return pila.tamanio
+
