@@ -1,8 +1,8 @@
 class Nodo:
     #Creamos la clase Nodo definiendo en el contructor el dato a almacenar
     #Queda por definir el puntero, que definirá el siguiente elemento en la cola
-    def __init__(self,dato):
-        self.dato = dato
+    def __init__(self,info):
+        self.info = info
         self.sig = None
 
 class Pila:
@@ -27,7 +27,7 @@ class Pila:
         if self.superior == None:
             print("No hay ningún elemento en la cola")
             return
-        print("Desapilar {}".format(self.superior.dato))
+        print("Desapilar {}".format(self.superior.info))
         self.superior = self.superior.sig
         self.tamanio -=1
     
@@ -36,7 +36,7 @@ class Pila:
         #recorriendo la pila e imprimir valores
         nodo_temporal = self.superior
         while nodo_temporal != None:
-            print("{}".format(nodo_temporal.dato))
+            print("{}".format(nodo_temporal.info))
             nodo_temporal = nodo_temporal.sig
         print("")
 
@@ -47,7 +47,7 @@ class Pila:
     def en_cima(self):
     #Devuelve el valor almacenado en la cima de la pila
         if self.superior is not None:
-            return self.superior.dato
+            return self.superior.info
         else:
             return None
 
