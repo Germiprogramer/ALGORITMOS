@@ -6,12 +6,18 @@ def crear_tabla(tamanio):
     tabla = [None]*tamanio
     return tabla
 
-def cantidad_elementos(tabla):
+def cantidad_elementos_l(tabla):
     return (len(tabla) - tabla.count(None))
+
+def bernstein(texto):
+    h = 0
+    for letra in texto:
+        h = h*33 +ord(letra)
+    return h
 
 def funcion_hash(dato, tamanio_tabla):
     #hash por division en este caso
-    return len(str(dato).strip())%tamanio_tabla
+    return bernstein(dato)%tamanio_tabla
 
 def agregar_l(tabla,dato):
     posicion = funcion_hash(dato, len(tabla))
@@ -43,3 +49,9 @@ def quitar_l(tabla, dato):
             #aqui iria el codigo de la funcion de sondeo
 
     return dato
+
+def cantidad_elementos_L(tabla):
+    return sum(lista.tamanio for lista in tabla if lista is not None)
+
+def buscar_L(tabla):
+    

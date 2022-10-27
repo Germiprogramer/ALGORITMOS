@@ -1,3 +1,5 @@
+#thealgorithms
+
 def quicksort(lista, primero, ultimo):
     izquierda = primero
     derecha = ultimo - 1

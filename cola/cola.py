@@ -10,19 +10,24 @@ class Cola():
         self.tamanio = 0
 
     def get_final(self):
-        return self.final.info
+        pass
     
     def arribo(self, dato):
         print("Añadiendo {} al final de la cola".format(dato))
         if self.principio == None:
             self.principio = Nodo(dato)
-        elif self.final.info == self.principio.info:
-            self.principio.sig = Nodo(dato)
+            
+        elif self.principio != None and self.final == None:
+            self.final = Nodo(dato)
+            self.principio.sig = self.final
+            
+
         else:
             self.final.sig = Nodo(dato)
+            self.final = Nodo(dato)
 
         #DUDA, NO CONSIGO QUE SE AÑADAN MÁS DE DOS ELEMENTOS
-        self.final = Nodo(dato)
+        
         self.tamanio +=1
     
     def atencion(self):
