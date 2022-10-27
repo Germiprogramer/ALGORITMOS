@@ -11,25 +11,25 @@ class Pila:
         self.superior = None
         self.tamanio = 0
 
-    def apilar(self,dato):
+def apilar(pila,dato):
         print("Agregando {} en la cima de la pila".format(dato))
         #Si no hay dato, agregamos el valor del elemento superior y desapilamos
-        if self.superior == None:
-            self.superior = Nodo(dato)
+        if pila.superior == None:
+            pila.superior = Nodo(dato)
             return
         nuevo_nodo = Nodo(dato)
-        nuevo_nodo.sig = self.superior
-        self.superior = nuevo_nodo
-        self.tamanio += 1
+        nuevo_nodo.sig = pila.superior
+        pila.superior = nuevo_nodo
+        pila.tamanio += 1
 
-    def desapilar(self):
+def desapilar(pila):
         #Si no hay datos en el nodo superior, regresamos
-        if self.superior == None:
+        if pila.superior == None:
             print("No hay ningún elemento en la cola")
             return
-        print("Desapilar {}".format(self.superior.info))
-        self.superior = self.superior.sig
-        self.tamanio -=1
+        print("Desapilar {}".format(pila.superior.info))
+        pila.superior = pila.superior.sig
+        pila.tamanio -=1
     
     def imprimir(self):
         print("Imprimiendo pila: ")
