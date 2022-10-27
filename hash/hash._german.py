@@ -15,7 +15,7 @@ class Tabla_Hash():
     #hash por division en este caso
         return bernstein(dato)%self.tamanio
 
-    def corregir_colision(posicion, dato, self):
+    #def corregir_colision(posicion, dato, self):
 
 
     def insertar(self, dato):

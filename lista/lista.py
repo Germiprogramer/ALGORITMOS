@@ -12,57 +12,57 @@ class Lista():
         self.tamanio = 0
 
 
-    def insertar(self, dato):
+def insertar(lista, dato):
         nodo = Nodo(dato)
-        if self.inicio == None or self.inicio.info > dato:
-            nodo.sig = self.inicio
-            self.inicio = nodo
+        if lista.inicio == None or lista.inicio.info > dato:
+            nodo.sig = lista.inicio
+            lista.inicio = nodo
         else:
-            ant = self.inicio
-            act = self.inicio.sig
+            ant = lista.inicio
+            act = lista.inicio.sig
             while (act is not None and act.info < dato):
                 ant = ant.sig
                 act = act.sig
             nodo.sig = act
             ant.sig = nodo
-        self.tamanio += 1 
+        lista.tamanio += 1 
     
-    def imprimir(self):
+def imprimir(lista):
         print("Imprimiendo lista: ")
         #recorriendo la pila e imprimir valores
-        nodo_temporal = self.inicio
+        nodo_temporal = lista.inicio
         while nodo_temporal != None:
             print("{}".format(nodo_temporal.info))
             nodo_temporal = nodo_temporal.sig
         print("")
     
-    def lista_vacia(self):
-        return self.inicio == None
+def lista_vacia(lista):
+        return lista.inicio == None
 
-    def eliminar(self, clave):
+def eliminar(lista, clave):
         dato = None
-        if self.inicio.info == clave:
-            dato = self.inicio.info
-            self.inicio = self.inicio.sig
-            self.tamanio -=1
+        if lista.inicio.info == clave:
+            dato = lista.inicio.info
+            lista.inicio = lista.inicio.sig
+            lista.tamanio -=1
         else:
-            anterior = self.inicio
-            actual = self.inicio.sig
+            anterior = lista.inicio
+            actual = lista.inicio.sig
             while actual is not None and actual.info != clave:
                 anterior = anterior.sig
                 actual = actual.sig
             if actual is not None:
                 dato = actual.info
                 anterior.sig = actual.sig
-                self.tamanio -=1
+                lista.tamanio -=1
         return dato
 
-    def tamanio(self):
-        return self.tamanio
+def tamanio(lista):
+        return lista.tamanio
 
-    def buscar(self, buscado):
+def buscar(lista, buscado):
 
-        aux = self.inicio
+        aux = lista.inicio
         while(aux is not None and aux.info != buscado):
             aux = aux.sig
         return aux
@@ -73,11 +73,11 @@ class Lista():
 
 
 c = Lista()
-c.insertar(1)
-c.insertar(2)
-c.insertar(0)
-c.eliminar(1)
-c.imprimir()
+insertar(c,1)
+insertar(c,2)
+insertar(c,0)
+eliminar(c,1)
+imprimir(c)
 
 
 

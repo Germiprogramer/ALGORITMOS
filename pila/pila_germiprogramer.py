@@ -31,29 +31,29 @@ def desapilar(pila):
         pila.superior = pila.superior.sig
         pila.tamanio -=1
     
-    def imprimir(self):
+def imprimir(pila):
         print("Imprimiendo pila: ")
         #recorriendo la pila e imprimir valores
-        nodo_temporal = self.superior
+        nodo_temporal = pila.superior
         while nodo_temporal != None:
             print("{}".format(nodo_temporal.info))
             nodo_temporal = nodo_temporal.sig
         print("")
 
-    def pila_vacia(self):
+def pila_vacia(pila):
     #Devuelve true si la pila está vacia
-        return self.superior is None
+        return pila.superior is None
 
-    def en_cima(self):
+def en_cima(pila):
     #Devuelve el valor almacenado en la cima de la pila
-        if self.superior is not None:
-            return self.superior.info
+        if pila.superior is not None:
+            return pila.superior.info
         else:
             return None
 
     #DUDA NO FUNCIONA
-    def tamanio(self):
+def tamanio(pila):
     #devuelve el numero de elementos en la pila
-        return self.tamanio
+        return pila.tamanio
 
 
