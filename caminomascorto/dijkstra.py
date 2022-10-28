@@ -3,24 +3,7 @@ import sys
 class Graph(object):
     def __init__(self, nodes, init_graph):
         self.nodes = nodes
-        self.graph = self.construct_graph(nodes, init_graph)
-        
-    def construct_graph(self, nodes, init_graph):
-        '''
-        This method makes sure that the graph is symmetrical. In other words, if there's a path from node A to B with a value V, there needs to be a path from node B to node A with a value V.
-        '''
-        graph = {}
-        for node in nodes:
-            graph[node] = {}
-        
-        graph.update(init_graph)
-        
-        for node, edges in graph.items():
-            for adjacent_node, value in edges.items():
-                if graph[adjacent_node].get(node, False) == False:
-                    graph[adjacent_node][node] = value
-                    
-        return graph
+        self.graph = init_graph
     
     def get_nodes(self):
         "Returns the nodes of the graph."
@@ -100,7 +83,12 @@ nodes = ["Reykjavik", "Oslo", "Moscow", "London", "Rome", "Berlin", "Belgrade", 
 init_graph = {}
 for node in nodes:
     init_graph[node] = {}
-    
+
+def añadir_elemento(grafo, nodo1, nodo2, distancia):
+      grafo[nodo1][nodo2] = distancia
+      grafo[nodo2][nodo1] = distancia
+
+
 init_graph["Reykjavik"]["Oslo"] = 5
 init_graph["Reykjavik"]["London"] = 4
 init_graph["Oslo"]["Berlin"] = 1

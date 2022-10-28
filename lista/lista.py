@@ -1,7 +1,7 @@
-from numpy import angle
 
 
-class Nodo():
+
+class NodoLista():
     def __init__(self, info):
         self.info = info
         self.sig = None
@@ -13,7 +13,7 @@ class Lista():
 
 
 def insertar(lista, dato):
-        nodo = Nodo(dato)
+        nodo = NodoLista(dato)
         if lista.inicio == None or lista.inicio.info > dato:
             nodo.sig = lista.inicio
             lista.inicio = nodo

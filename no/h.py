@@ -32,7 +32,13 @@ def desapilar(pila):
         pila.tamanio -=1
 
 def pasar_elemento(pila_pasa, pila_recibe):
+    elemento_pasar = pila_pasa.superior.info
     desapilar(pila_pasa)
+    apilar(pila_recibe, elemento_pasar)
+
+def condicion_hanoi(pila_pasa, pila_recibe):
+    if pila_pasa.superior < pila_recibe.superior:
+        pasar_elemento(pila_pasa, pila_recibe)
     
 def imprimir(pila):
         print("Imprimiendo pila: ")
@@ -69,8 +75,35 @@ apilar(pila1, 3)
 apilar(pila1, 2)
 apilar(pila1, 1)
 
+pasar_elemento(pila1, pila2)
+pasar_elemento(pila1, pila3)
+pasar_elemento(pila2, pila3)
+
 imprimir(pila1)
 imprimir(pila2)
 imprimir(pila3)
 
-desapilar(pila1)
+pila4 = Pila()
+pila5 = Pila()
+pila6 = Pila()
+
+apilar(pila5, 10)
+apilar(pila6,10)
+
+for i in range(4+1):
+    apilar(pila4,i)
+imprimir(pila4)
+
+def hanoi(n, pila1, pila2, pila3):
+    try:
+        condicion_hanoi(pila1,pila2)
+    except:
+        try:
+            condicion_hanoi(pila1, pila3)
+        except:
+            try:
+                condicion_hanoi(pila2, pila3)
+            except:
+                try
+    
+hanoi(3, pila4, pila5, pila6)

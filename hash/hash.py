@@ -53,5 +53,5 @@ def quitar_l(tabla, dato):
 def cantidad_elementos_L(tabla):
     return sum(lista.tamanio for lista in tabla if lista is not None)
 
-def buscar_L(tabla):
+#def buscar_L(tabla):
     
