@@ -32,7 +32,18 @@ def desapilar(pila):
         pila.tamanio -=1
 
 def pasar_elemento(pila_pasa, pila_recibe):
+    elemento_pasar = pila_pasa.superior.info
     desapilar(pila_pasa)
+    apilar(pila_recibe, elemento_pasar)
+
+def condicion_hanoi(pila_pasa, pila_recibe):
+    try:
+        if pila_pasa.superior.info < pila_recibe.superior.info:
+            pasar_elemento(pila_pasa, pila_recibe)
+        else:
+            pass
+    except:
+        pasar_elemento(pila_pasa, pila_recibe)
     
 def imprimir(pila):
         print("Imprimiendo pila: ")
